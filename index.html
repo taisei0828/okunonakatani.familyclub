@@ -84,6 +84,123 @@ header .logo{
   }
 }
 
+#menuToggle{
+  display:none;
+}
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.3);
+  opacity:0;
+  pointer-events:none;
+  z-index:120;
+  transition:.3s;
+}
+
+.menu{
+  position:fixed;
+  inset:0;
+  background:#43aec1;
+  color:#fff;
+  transform:translateX(-100%);
+  transition:.35s;
+  z-index:130;
+  overflow-y:auto;
+}
+
+#menuToggle:checked ~ .menu-overlay{
+  opacity:1;
+  pointer-events:auto;
+}
+
+#menuToggle:checked ~ .menu{
+  transform:translateX(0);
+}
+
+.menu-header{
+  height:72px;
+  display:flex;
+  align-items:center;
+  padding:0 16px;
+  font-size:18px;
+  border-bottom:1px solid rgba(255,255,255,.4);
+}
+
+.menu-header label{
+  font-size:28px;
+  margin-right:12px;
+  cursor:pointer;
+}
+
+.menu-list{
+  padding:16px;
+}
+
+.menu-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.35);
+  font-size:15px;
+}
+
+.menu-item span{
+  opacity:.8;
+}
+</style>
+</head>
+
+<body>
+
+<input type="checkbox" id="menuToggle">
+
+<header id="header">
+  <label for="menuToggle" class="icon">≡</label>
+  <div class="logo">FC FAMILY CLUB</div>
+  <div class="icon">●</div>
+</header>
+
+<label for="menuToggle" class="menu-overlay"></label>
+
+<nav class="menu">
+  <div class="menu-header">
+    <label for="menuToggle">×</label>
+    FAMILY CLUB
+  </div>
+
+  <div class="menu-list">
+    <div class="menu-item">更新情報 <span>›</span></div>
+    <div class="menu-item">発送物情報 <span>›</span></div>
+    <div class="menu-item">メール伝言板 <span>›</span></div>
+    <div class="menu-item">メール伝言板アプリについて <span>›</span></div>
+
+    <div class="menu-item">ムービー <span>›</span></div>
+    <div class="menu-item">ギャラリー <span>›</span></div>
+
+    <div class="menu-item">展示スペース <span>›</span></div>
+    <div class="menu-item">番組協力 <span>›</span></div>
+    <div class="menu-item">公演 <span>›</span></div>
+
+    <div class="menu-item">マイページ（会員情報の確認・変更） <span>›</span></div>
+    <div class="menu-item">登録内容変更方法 <span>›</span></div>
+    <div class="menu-item">会員証再発行の方法 <span>›</span></div>
+    <div class="menu-item">ログアウト <span>›</span></div>
+
+    <div class="menu-item">会員規約 <span>›</span></div>
+    <div class="menu-item">嵐ファンクラブ特約 <span>›</span></div>
+    <div class="menu-item">チケット販売規約 <span>›</span></div>
+    <div class="menu-item">ファンの皆さまへ注意とお願い <span>›</span></div>
+    <div class="menu-item">ファンレター・贈り物について <span>›</span></div>
+  </div>
+</nav>
+
+<div class="header-space"></div>
+
+<div class="page">
+
+  
 /* =========================
    floating card
 ========================= */
@@ -321,3 +438,4 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
+
