@@ -7,12 +7,12 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:#f2f2f2;
   color:#222;
 }
+a{color:inherit;text-decoration:none}
 
 /* =========================
    page
@@ -22,13 +22,12 @@ body{
   margin:0 auto;
   background:#fff;
 }
-
 @media (min-width:900px){
   .page{max-width:720px;}
 }
 
 /* =========================
-   header（固定）
+   header
 ========================= */
 header{
   height:72px;
@@ -43,45 +42,79 @@ header{
   max-width:720px;
   background:#fff;
   z-index:100;
-  transition:box-shadow .3s;
-}
-
-header.shadow{
   box-shadow:0 6px 20px rgba(0,0,0,.12);
 }
-
 header .icon{
   text-align:center;
   color:#3aaed8;
-  font-size:13px;
+  font-size:22px;
+  cursor:pointer;
 }
-
 header .logo{
   text-align:center;
   font-weight:700;
   letter-spacing:.08em;
 }
+.header-space{height:72px}
 
-/* header分の余白 */
-.header-space{
-  height:72px;
+/* =========================
+   hamburger menu
+========================= */
+#menuToggle{display:none;}
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:90;
+}
+
+.menu{
+  position:fixed;
+  top:0;
+  left:0;
+  width:82%;
+  max-width:320px;
+  height:100%;
+  background:#38a9c6;
+  color:#fff;
+  transform:translateX(-100%);
+  transition:.3s;
+  z-index:100;
+  padding-top:72px;
+  overflow-y:auto;
+}
+
+#menuToggle:checked ~ .menu{
+  transform:translateX(0);
+}
+#menuToggle:checked ~ .menu-overlay{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.menu ul{
+  list-style:none;
+}
+.menu li{
+  border-bottom:1px solid rgba(255,255,255,.3);
+}
+.menu a{
+  display:flex;
+  justify-content:space-between;
+  padding:16px 20px;
+  font-size:15px;
 }
 
 /* =========================
-   hero（背景画像）
+   hero
 ========================= */
 .hero{
-  width:100%;
   aspect-ratio:4/3;
-  background-image:url("img/hero.jpg");
-  background-size:cover;
-  background-position:center;
-}
-
-@media (min-width:900px){
-  .hero{
-    aspect-ratio:16/9;
-  }
+  background:url("img/hero.jpg") center/cover;
 }
 
 /* =========================
@@ -90,41 +123,29 @@ header .logo{
 .floating{
   margin-top:-40px;
   padding:0 16px 32px;
-  position:relative;
-  z-index:2;
 }
-
 .card{
   background:#fff;
   border-radius:28px;
   box-shadow:0 10px 30px rgba(0,0,0,.12);
   padding:20px;
 }
-
 .news-item{
   padding:12px 0;
   border-bottom:1px solid #eee;
   font-size:14px;
-  line-height:1.6;
 }
+.news-item:last-child{border:none}
 
-.news-item:last-child{
-  border-bottom:none;
-}
-
-/* =========================
-   button（本家寄せ）
-========================= */
 .button{
   margin:18px auto 0;
   width:85%;
   text-align:center;
   padding:14px 0;
   border-radius:999px;
-  background:linear-gradient(90deg,#1a9fd8 0%, #6fd3e6 100%);
+  background:linear-gradient(90deg,#1a9fd8,#6fd3e6);
   color:#fff;
   font-weight:600;
-  letter-spacing:.05em;
 }
 
 /* =========================
@@ -135,7 +156,6 @@ header .logo{
   display:grid;
   gap:24px;
 }
-
 .banners img{
   width:100%;
   border-radius:12px;
@@ -143,21 +163,13 @@ header .logo{
 }
 
 /* =========================
-   two nav
+   nav pills
 ========================= */
-.twonav{
+.twonav,.bottom{
   padding:32px 16px;
   display:grid;
-  grid-template-columns:1fr;
   gap:16px;
 }
-
-@media (min-width:768px){
-  .twonav{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
 .pill{
   background:#fff;
   border-radius:999px;
@@ -165,50 +177,6 @@ header .logo{
   padding:16px 22px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  font-size:14px;
-}
-
-/* =========================
-   info sections
-========================= */
-.section{
-  padding:0 16px 32px;
-}
-
-.section .card{
-  margin-top:24px;
-}
-
-.row{
-  margin-top:14px;
-}
-
-.row .title{
-  font-size:14px;
-  font-weight:600;
-}
-
-.row .sub{
-  font-size:12px;
-  color:#666;
-  margin-top:6px;
-}
-
-/* =========================
-   bottom nav
-========================= */
-.bottom{
-  padding:0 16px 40px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-}
-
-@media (min-width:768px){
-  .bottom{
-    grid-template-columns:1fr 1fr;
-  }
 }
 
 /* =========================
@@ -217,25 +185,35 @@ header .logo{
 footer{
   background:#1f1a1c;
   color:#ccc;
-  padding:36px 16px 56px;
+  padding:36px 16px;
   text-align:center;
   font-size:12px;
-}
-
-footer .top{
-  margin-bottom:24px;
-  font-size:20px;
 }
 </style>
 </head>
 
 <body>
 
-<header id="header">
-  <div class="icon">≡</div>
+<input type="checkbox" id="menuToggle">
+
+<header>
+  <label for="menuToggle" class="icon">≡</label>
   <div class="logo">FC FAMILY CLUB</div>
   <div class="icon">●</div>
 </header>
+
+<div class="menu-overlay"></div>
+
+<nav class="menu">
+  <ul>
+    <li><a href="page_space.html">展示スペース<span>›</span></a></li>
+    <li><a href="page_program.html">番組協力<span>›</span></a></li>
+    <li><a href="page_event.html">公演<span>›</span></a></li>
+    <li><a href="mypage.html">マイページ<span>›</span></a></li>
+    <li><a href="rule.html">会員規約<span>›</span></a></li>
+    <li><a href="ticket.html">チケット販売規約<span>›</span></a></li>
+  </ul>
+</nav>
 
 <div class="header-space"></div>
 
@@ -245,79 +223,32 @@ footer .top{
 
 <section class="floating">
   <div class="card">
-    <div class="news-item">2026.1.14｜コンサート 更新</div>
-    <div class="news-item">2026.1.11｜Special 更新</div>
-    <div class="news-item">2026.1.1｜お知らせ</div>
-    <div class="news-item">2025.12.29｜Special 更新</div>
+    <a class="news-item" href="news1.html">2026.1.14｜コンサート 更新</a>
+    <a class="news-item" href="news2.html">2026.1.11｜Special 更新</a>
+    <a class="news-item" href="news3.html">2026.1.1｜お知らせ</a>
     <div class="button">すべてを表示</div>
   </div>
 </section>
 
 <section class="banners">
-  <img src="img/banner1.jpg" alt="">
-  <img src="img/banner2.jpg" alt="">
-  <img src="img/banner3.jpg" alt="">
+  <a href="banner1.html"><img src="img/banner1.jpg"></a>
+  <a href="banner2.html"><img src="img/banner2.jpg"></a>
 </section>
 
 <section class="twonav">
-  <div class="pill">ムービー <span>›</span></div>
-  <div class="pill">ギャラリー <span>›</span></div>
-</section>
-
-<section class="section">
-  <div class="card">
-    <div class="row">
-      <div class="title">ARASHI LIVE TOUR 2026</div>
-      <div class="sub">タレント・グループ名：嵐</div>
-      <div class="button">詳しく見る</div>
-    </div>
-    <div class="row">
-      <div class="title">ARASHI LIVE TOUR 2026（二次受付）</div>
-      <div class="sub">タレント・グループ名：嵐</div>
-      <div class="button">詳しく見る</div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="card">
-    <div class="row">
-      <div class="title">FAMILY CLUB 入館申込</div>
-      <div class="sub">2026年1月19日〜1月25日分</div>
-      <div class="button">詳しく見る</div>
-    </div>
-    <div class="row">
-      <div class="sub">2026年1月26日〜2月1日分</div>
-      <div class="button">詳しく見る</div>
-    </div>
-  </div>
+  <a class="pill" href="movie.html">ムービー<span>›</span></a>
+  <a class="pill" href="gallery.html">ギャラリー<span>›</span></a>
 </section>
 
 <section class="bottom">
-  <div class="pill">メール伝言板 <span>›</span></div>
-  <div class="pill">発送物情報 <span>›</span></div>
-  <div class="pill">マイページ <span>›</span></div>
-  <div class="pill">ログアウト <span>›</span></div>
+  <a class="pill" href="mail.html">メール伝言板<span>›</span></a>
+  <a class="pill" href="mypage.html">マイページ<span>›</span></a>
 </section>
 
 <footer>
-  <div class="top">︿</div>
-  サイトポリシー ｜ プライバシーポリシー ｜ 推奨環境<br>
-  © FAMILY CLUB Inc.
+  © FAMILY CLUB Replica
 </footer>
 
 </div>
-
-<script>
-const header = document.getElementById("header");
-window.addEventListener("scroll", () => {
-  if(window.scrollY > 10){
-    header.classList.add("shadow");
-  }else{
-    header.classList.remove("shadow");
-  }
-});
-</script>
-
 </body>
 </html>
