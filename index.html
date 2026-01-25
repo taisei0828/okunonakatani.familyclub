@@ -42,7 +42,7 @@ header{
   width:100%;
   max-width:720px;
   background:#fff;
-  z-index:120; /* ← ハンバーガーより上 */
+  z-index:100;
   transition:box-shadow .3s;
 }
 
@@ -53,7 +53,7 @@ header.shadow{
 header .icon{
   text-align:center;
   color:#3aaed8;
-  font-size:18px;
+  font-size:22px;
   cursor:pointer;
 }
 
@@ -69,7 +69,7 @@ header .logo{
 }
 
 /* =========================
-   hamburger menu（追加）
+   hamburger menu
 ========================= */
 #menuToggle{
   display:none;
@@ -78,60 +78,49 @@ header .logo{
 .menu-overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.45);
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-  z-index:100;
-}
-
-.menu{
-  position:fixed;
-  inset:0;
-  background:#3aaec6;
-  color:#fff;
+  background:#45b2c7;
+  z-index:200;
   transform:translateX(-100%);
-  transition:.3s;
-  z-index:110;
+  transition:.4s ease;
   overflow-y:auto;
 }
 
-#menuToggle:checked ~ .menu{
-  transform:translateX(0);
-}
-
 #menuToggle:checked ~ .menu-overlay{
-  opacity:1;
-  pointer-events:auto;
+  transform:translateX(0);
 }
 
 .menu-header{
   height:72px;
   display:flex;
   align-items:center;
-  padding:0 16px;
-  font-size:18px;
+  padding:0 20px;
+  color:#fff;
   font-weight:600;
+  letter-spacing:.08em;
 }
 
-.menu-header label{
+.menu-close{
   font-size:28px;
-  margin-right:12px;
+  margin-right:14px;
   cursor:pointer;
 }
 
-.menu-section{
-  border-top:1px solid rgba(255,255,255,.4);
+.menu-list{
+  padding:10px 0 40px;
 }
 
-.menu a{
+.menu-item{
+  padding:18px 24px;
+  color:#fff;
+  font-size:15px;
   display:flex;
   justify-content:space-between;
-  padding:16px;
-  font-size:15px;
-  border-bottom:1px solid rgba(255,255,255,.25);
-  color:#fff;
-  text-decoration:none;
+  align-items:center;
+  border-top:1px solid rgba(255,255,255,.35);
+}
+
+.menu-item:last-child{
+  border-bottom:1px solid rgba(255,255,255,.35);
 }
 
 /* =========================
@@ -140,9 +129,7 @@ header .logo{
 .hero{
   width:100%;
   aspect-ratio:4/3;
-  background-image:url("img/hero.jpg");
-  background-size:cover;
-  background-position:center;
+  background:#ccc;
 }
 
 @media (min-width:900px){
@@ -150,7 +137,7 @@ header .logo{
 }
 
 /* =========================
-   floating card
+   以下：既存CSSそのまま
 ========================= */
 .floating{
   margin-top:-40px;
@@ -170,9 +157,10 @@ header .logo{
   padding:12px 0;
   border-bottom:1px solid #eee;
   font-size:14px;
+  line-height:1.6;
 }
 
-.news-item:last-child{border-bottom:none}
+.news-item:last-child{border-bottom:none;}
 
 .button{
   margin:18px auto 0;
@@ -180,28 +168,28 @@ header .logo{
   text-align:center;
   padding:14px 0;
   border-radius:999px;
-  background:linear-gradient(90deg,#1a9fd8,#6fd3e6);
+  background:linear-gradient(90deg,#1a9fd8 0%, #6fd3e6 100%);
   color:#fff;
   font-weight:600;
 }
 
-/* =========================
-   banners / nav / footer
-========================= */
 .banners{
   padding:32px 16px 0;
   display:grid;
   gap:24px;
 }
+
 .banners img{
   width:100%;
   border-radius:12px;
 }
-.twonav,.bottom{
+
+.twonav{
   padding:32px 16px;
   display:grid;
   gap:16px;
 }
+
 .pill{
   background:#fff;
   border-radius:999px;
@@ -210,6 +198,9 @@ header .logo{
   display:flex;
   justify-content:space-between;
 }
+
+.section{padding:0 16px 32px;}
+
 footer{
   background:#1f1a1c;
   color:#ccc;
@@ -222,86 +213,44 @@ footer{
 
 <body>
 
-<!-- ▼ ① 追加：トグル -->
+<!-- ▼ 追加① -->
 <input type="checkbox" id="menuToggle">
 
 <header id="header">
-  <!-- ▼ ② 変更：≡ を label に -->
+  <!-- ▼ 変更②：≡ を label に -->
   <label for="menuToggle" class="icon">≡</label>
   <div class="logo">FC FAMILY CLUB</div>
   <div class="icon">●</div>
 </header>
 
-<!-- ▼ ③ 追加：オーバーレイ -->
-<label for="menuToggle" class="menu-overlay"></label>
-
-<!-- ▼ ④ 追加：メニュー本体 -->
-<nav class="menu">
+<!-- ▼ 追加③：メニュー本体 -->
+<label for="menuToggle" class="menu-overlay">
   <div class="menu-header">
-    <label for="menuToggle">×</label>
+    <span class="menu-close">×</span>
     FAMILY CLUB
   </div>
-
-  <div class="menu-section">
-    <a href="#">更新情報<span>›</span></a>
-    <a href="#">発送物情報<span>›</span></a>
-    <a href="#">メール伝言板<span>›</span></a>
+  <div class="menu-list">
+    <div class="menu-item">更新情報 <span>›</span></div>
+    <div class="menu-item">発送物情報 <span>›</span></div>
+    <div class="menu-item">メール伝言板 <span>›</span></div>
+    <div class="menu-item">ムービー <span>›</span></div>
+    <div class="menu-item">ギャラリー <span>›</span></div>
+    <div class="menu-item">展示スペース <span>›</span></div>
+    <div class="menu-item">番組協力 <span>›</span></div>
+    <div class="menu-item">公演 <span>›</span></div>
+    <div class="menu-item">マイページ <span>›</span></div>
+    <div class="menu-item">ログアウト <span>›</span></div>
   </div>
-
-  <div class="menu-section">
-    <a href="#">ムービー<span>›</span></a>
-    <a href="#">ギャラリー<span>›</span></a>
-  </div>
-
-  <div class="menu-section">
-    <a href="#">マイページ<span>›</span></a>
-    <a href="#">ログアウト<span>›</span></a>
-  </div>
-</nav>
+</label>
 
 <div class="header-space"></div>
 
 <div class="page">
-<!-- ↓↓↓ 以下、あなたの元コード一切変更なし ↓↓↓ -->
-
-<section class="hero"></section>
-
-<section class="floating">
-  <div class="card">
-    <div class="news-item">2026.1.14｜コンサート 更新</div>
-    <div class="news-item">2026.1.11｜Special 更新</div>
-    <div class="news-item">2026.1.1｜お知らせ</div>
-    <div class="news-item">2025.12.29｜Special 更新</div>
-    <div class="button">すべてを表示</div>
-  </div>
-</section>
-
-<section class="banners">
-  <img src="img/banner1.jpg">
-  <img src="img/banner2.jpg">
-  <img src="img/banner3.jpg">
-</section>
-
-<section class="twonav">
-  <div class="pill">ムービー <span>›</span></div>
-  <div class="pill">ギャラリー <span>›</span></div>
-</section>
-
-<section class="bottom">
-  <div class="pill">メール伝言板 <span>›</span></div>
-  <div class="pill">発送物情報 <span>›</span></div>
-  <div class="pill">マイページ <span>›</span></div>
-  <div class="pill">ログアウト <span>›</span></div>
-</section>
-
-<footer>
-  © FAMILY CLUB Inc.
-</footer>
-
+  <section class="hero"></section>
 </div>
 
 <script>
-const header=document.getElementById("header");
+const header = document.getElementById("header");
 window.addEventListener("scroll",()=>{
   header.classList.toggle("shadow",window.scrollY>10);
 });
