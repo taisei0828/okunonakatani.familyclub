@@ -53,8 +53,7 @@ header.shadow{
 header .icon{
   text-align:center;
   color:#3aaed8;
-  font-size:22px;
-  cursor:pointer;
+  font-size:13px;
 }
 
 header .logo{
@@ -69,75 +68,24 @@ header .logo{
 }
 
 /* =========================
-   hamburger menu
-========================= */
-#menuToggle{
-  display:none;
-}
-
-.menu-overlay{
-  position:fixed;
-  inset:0;
-  background:#45b2c7;
-  z-index:200;
-  transform:translateX(-100%);
-  transition:.4s ease;
-  overflow-y:auto;
-}
-
-#menuToggle:checked ~ .menu-overlay{
-  transform:translateX(0);
-}
-
-.menu-header{
-  height:72px;
-  display:flex;
-  align-items:center;
-  padding:0 20px;
-  color:#fff;
-  font-weight:600;
-  letter-spacing:.08em;
-}
-
-.menu-close{
-  font-size:28px;
-  margin-right:14px;
-  cursor:pointer;
-}
-
-.menu-list{
-  padding:10px 0 40px;
-}
-
-.menu-item{
-  padding:18px 24px;
-  color:#fff;
-  font-size:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-top:1px solid rgba(255,255,255,.35);
-}
-
-.menu-item:last-child{
-  border-bottom:1px solid rgba(255,255,255,.35);
-}
-
-/* =========================
-   hero
+   hero（背景画像）
 ========================= */
 .hero{
   width:100%;
   aspect-ratio:4/3;
-  background:#ccc;
+  background-image:url("img/hero.jpg");
+  background-size:cover;
+  background-position:center;
 }
 
 @media (min-width:900px){
-  .hero{aspect-ratio:16/9;}
+  .hero{
+    aspect-ratio:16/9;
+  }
 }
 
 /* =========================
-   以下：既存CSSそのまま
+   floating card
 ========================= */
 .floating{
   margin-top:-40px;
@@ -160,8 +108,13 @@ header .logo{
   line-height:1.6;
 }
 
-.news-item:last-child{border-bottom:none;}
+.news-item:last-child{
+  border-bottom:none;
+}
 
+/* =========================
+   button（本家寄せ）
+========================= */
 .button{
   margin:18px auto 0;
   width:85%;
@@ -171,8 +124,12 @@ header .logo{
   background:linear-gradient(90deg,#1a9fd8 0%, #6fd3e6 100%);
   color:#fff;
   font-weight:600;
+  letter-spacing:.05em;
 }
 
+/* =========================
+   banners
+========================= */
 .banners{
   padding:32px 16px 0;
   display:grid;
@@ -182,12 +139,23 @@ header .logo{
 .banners img{
   width:100%;
   border-radius:12px;
+  display:block;
 }
 
+/* =========================
+   two nav
+========================= */
 .twonav{
   padding:32px 16px;
   display:grid;
+  grid-template-columns:1fr;
   gap:16px;
+}
+
+@media (min-width:768px){
+  .twonav{
+    grid-template-columns:1fr 1fr;
+  }
 }
 
 .pill{
@@ -197,10 +165,55 @@ header .logo{
   padding:16px 22px;
   display:flex;
   justify-content:space-between;
+  align-items:center;
+  font-size:14px;
 }
 
-.section{padding:0 16px 32px;}
+/* =========================
+   info sections
+========================= */
+.section{
+  padding:0 16px 32px;
+}
 
+.section .card{
+  margin-top:24px;
+}
+
+.row{
+  margin-top:14px;
+}
+
+.row .title{
+  font-size:14px;
+  font-weight:600;
+}
+
+.row .sub{
+  font-size:12px;
+  color:#666;
+  margin-top:6px;
+}
+
+/* =========================
+   bottom nav
+========================= */
+.bottom{
+  padding:0 16px 40px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+
+@media (min-width:768px){
+  .bottom{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+/* =========================
+   footer
+========================= */
 footer{
   background:#1f1a1c;
   color:#ccc;
@@ -208,51 +221,101 @@ footer{
   text-align:center;
   font-size:12px;
 }
+
+footer .top{
+  margin-bottom:24px;
+  font-size:20px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- ▼ 追加① -->
-<input type="checkbox" id="menuToggle">
-
 <header id="header">
-  <!-- ▼ 変更②：≡ を label に -->
-  <label for="menuToggle" class="icon">≡</label>
+  <div class="icon">≡</div>
   <div class="logo">FC FAMILY CLUB</div>
   <div class="icon">●</div>
 </header>
 
-<!-- ▼ 追加③：メニュー本体 -->
-<label for="menuToggle" class="menu-overlay">
-  <div class="menu-header">
-    <span class="menu-close">×</span>
-    FAMILY CLUB
-  </div>
-  <div class="menu-list">
-    <div class="menu-item">更新情報 <span>›</span></div>
-    <div class="menu-item">発送物情報 <span>›</span></div>
-    <div class="menu-item">メール伝言板 <span>›</span></div>
-    <div class="menu-item">ムービー <span>›</span></div>
-    <div class="menu-item">ギャラリー <span>›</span></div>
-    <div class="menu-item">展示スペース <span>›</span></div>
-    <div class="menu-item">番組協力 <span>›</span></div>
-    <div class="menu-item">公演 <span>›</span></div>
-    <div class="menu-item">マイページ <span>›</span></div>
-    <div class="menu-item">ログアウト <span>›</span></div>
-  </div>
-</label>
-
 <div class="header-space"></div>
 
 <div class="page">
-  <section class="hero"></section>
+
+<section class="hero"></section>
+
+<section class="floating">
+  <div class="card">
+    <div class="news-item">2026.1.14｜コンサート 更新</div>
+    <div class="news-item">2026.1.11｜Special 更新</div>
+    <div class="news-item">2026.1.1｜お知らせ</div>
+    <div class="news-item">2025.12.29｜Special 更新</div>
+    <div class="button">すべてを表示</div>
+  </div>
+</section>
+
+<section class="banners">
+  <img src="img/banner1.jpg" alt="">
+  <img src="img/banner2.jpg" alt="">
+  <img src="img/banner3.jpg" alt="">
+</section>
+
+<section class="twonav">
+  <div class="pill">ムービー <span>›</span></div>
+  <div class="pill">ギャラリー <span>›</span></div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <div class="row">
+      <div class="title">ARASHI LIVE TOUR 2026</div>
+      <div class="sub">タレント・グループ名：嵐</div>
+      <div class="button">詳しく見る</div>
+    </div>
+    <div class="row">
+      <div class="title">ARASHI LIVE TOUR 2026（二次受付）</div>
+      <div class="sub">タレント・グループ名：嵐</div>
+      <div class="button">詳しく見る</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <div class="row">
+      <div class="title">FAMILY CLUB 入館申込</div>
+      <div class="sub">2026年1月19日〜1月25日分</div>
+      <div class="button">詳しく見る</div>
+    </div>
+    <div class="row">
+      <div class="sub">2026年1月26日〜2月1日分</div>
+      <div class="button">詳しく見る</div>
+    </div>
+  </div>
+</section>
+
+<section class="bottom">
+  <div class="pill">メール伝言板 <span>›</span></div>
+  <div class="pill">発送物情報 <span>›</span></div>
+  <div class="pill">マイページ <span>›</span></div>
+  <div class="pill">ログアウト <span>›</span></div>
+</section>
+
+<footer>
+  <div class="top">︿</div>
+  サイトポリシー ｜ プライバシーポリシー ｜ 推奨環境<br>
+  © FAMILY CLUB Inc.
+</footer>
+
 </div>
 
 <script>
 const header = document.getElementById("header");
-window.addEventListener("scroll",()=>{
-  header.classList.toggle("shadow",window.scrollY>10);
+window.addEventListener("scroll", () => {
+  if(window.scrollY > 10){
+    header.classList.add("shadow");
+  }else{
+    header.classList.remove("shadow");
+  }
 });
 </script>
 
