@@ -367,11 +367,13 @@ a{
 
 <section class="floating">
   <div class="card">
-    <div class="news-item">2026.1.14｜コンサート 更新</div>
-    <div class="news-item">2026.1.11｜Special 更新</div>
-    <div class="news-item">2026.1.1｜お知らせ</div>
-    <div class="news-item">2025.12.29｜Special 更新</div>
-    <div class="button">すべてを表示</div>
+    <!-- 自動掲示板の表示場所 -->
+    <ul id="news-list"></ul>
+
+    <!-- 一覧ページへのリンク -->
+    <div class="button">
+      <a href="news.html">すべてを表示</a>
+    </div>
   </div>
 </section>
 
@@ -461,8 +463,9 @@ targets.forEach(el => {
 
   
 </script>
-
+<script src="js/news.js"></script>
 </body>
 </html>
+
 
 
