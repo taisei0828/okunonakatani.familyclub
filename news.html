@@ -28,5 +28,29 @@
 </main>
 
 <script src="news.js"></script>
+  <script>
+fetch("news.json")
+  .then(res => res.json())
+  .then(data => {
+    const list = document.getElementById("news-list");
+    if(!list) return;
+
+    data.forEach(item => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <a href="${item.url}">
+          <div class="meta">
+            <span class="date">${item.date}</span>
+            <span class="category">｜${item.category}</span>
+          </div>
+          <div class="title">${item.title}</div>
+          <span class="arrow">›</span>
+        </a>
+      `;
+      list.appendChild(li);
+    });
+  });
+</script>
+
 </body>
 </html>
