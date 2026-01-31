@@ -1,1 +1,60 @@
+/* グラデ帯 */
+.news-hero {
+  background: linear-gradient(135deg, #4fb0c6, #9fd4dc);
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.news-hero h1 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+/* 白カード */
+.news-wrapper {
+  background: #fff;
+  margin: -30px 16px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+#news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#news-list li {
+  border-bottom: 1px solid #eee;
+}
+
+#news-list a {
+  display: block;
+  padding: 16px 40px 16px 16px;
+  color: #222;
+  text-decoration: none;
+  position: relative;
+}
+
+.meta {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #999;
+}
 
