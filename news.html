@@ -9,48 +9,24 @@
 
 <body>
 
-<header class="fc-header">
-  <!-- index.htmlと同じヘッダーを丸ごとコピー -->
+<header id="header">
+  <div class="icon">≡</div>
+  <div class="logo">FC FAMILY CLUB</div>
+  <div class="icon">●</div>
 </header>
+<div class="header-space"></div>
 
-<main>
+<!-- グラデーション帯 -->
+<section class="hero" style="background-image:linear-gradient(135deg,#1a9fd8,#6fd3e6)">
+</section>
 
-  <!-- グラデ帯 -->
-  <section class="news-hero">
-    <h1>更新情報一覧</h1>
-  </section>
-
-  <!-- 白カード -->
-  <section class="news-wrapper">
-    <ul id="news-list"></ul>
-  </section>
-
-</main>
+<!-- 白カード（公式と同じ） -->
+<section class="floating">
+  <div class="card">
+    <div id="news-list"></div>
+  </div>
+</section>
 
 <script src="news.js"></script>
-  <script>
-fetch("news.json")
-  .then(res => res.json())
-  .then(data => {
-    const list = document.getElementById("news-list");
-    if(!list) return;
-
-    data.forEach(item => {
-      const li = document.createElement("li");
-      li.innerHTML = `
-        <a href="${item.url}">
-          <div class="meta">
-            <span class="date">${item.date}</span>
-            <span class="category">｜${item.category}</span>
-          </div>
-          <div class="title">${item.title}</div>
-          <span class="arrow">›</span>
-        </a>
-      `;
-      list.appendChild(li);
-    });
-  });
-</script>
-
 </body>
 </html>
