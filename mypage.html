@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>マイページ - FAMILY CLUB</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="pageTop">
+
+<div class="menu-overlay" id="menuOverlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:99998;cursor:pointer;" onclick="closeMenu()"></div>
+
+<header id="global-header" style="top:0">
+<div class="gh-masthead">
+<div class="logo">
+<a href="index.html"><img src="fc-logo.png" alt="FAMILY CLUB" style="height:50px;width:auto;"></a>
+</div>
+</div>
+<div class="gh-menu">
+<nav class="gh-menu-left">
+<div class="gh-button">
+<ul class="gh-nav-wrapper">
+<li><button type="button" onclick="openMenu()"><i class="ic-menu"></i></button></li>
+<li><a href="#"><i class="ic-faq"></i></a></li>
+</ul>
+</div>
+</nav>
+<div class="gh-menu-right">
+<a href="mypage.html"><i class="ic-mypage"></i></a>
+</div>
+</div>
+
+
+</header>
+<div id="globalMenu" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:rgb(59,174,198);z-index:99999;overflow-y:auto;">
+<nav class="gh-global-menu-nav" style="padding:10px 20px 80px;">
+<div class="global-nav-top">
+<button type="button" class="bt-menu-close" onclick="closeMenu()">✕</button>
+<a href="index.html">FAMILY CLUB</a>
+</div>
+<div class="global-nav-links">
+<ul>
+<li class="border"><a href="updates.html" onclick="closeMenu()">更新情報</a></li>
+<li><a href="movies.html" onclick="closeMenu()">ムービー</a></li>
+<li class="border"><a href="gallery.html" onclick="closeMenu()">ギャラリー</a></li>
+<li><a href="performance.html" onclick="closeMenu()">公演</a></li>
+<li class="border"><a href="https://instagram.com" target="_blank" onclick="closeMenu()">公式Instagram</a></li>
+<li><a href="https://example.com/store" target="_blank" onclick="closeMenu()">公式オンラインストア</a></li>
+<li class="border"><a href="mypage.html" onclick="closeMenu()">マイページ</a></li>
+<li><a href="logout.html" onclick="closeMenu()">ログアウト</a></li>
+</ul>
+</div>
+</nav>
+</div>
+
+
+<div style="height:100px"></div>
+
+<main id="main">
+
+<div class="title-area title-only bg-blue">
+<div class="page-title">
+<h1>マイページ</h1>
+</div>
+</div>
+
+<section class="container">
+
+<div class="module module-round-area shadow-box first-block">
+<div class="block">
+<div class="block-title">
+<h4 class="icon-title"><i class="ic-setting"></i>会員情報</h4>
+</div>
+<div class="block-content">
+<div class="inner-text">
+<p>会員情報の確認・変更ページです。</p>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+</main>
+
+<footer id="global-footer">
+<div class="container">
+<div class="gf-category-link">
+<div class="shortcut-top">
+<button type="button" class="bt-move-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="ic-move-top"></i></button>
+</div>
+<div class="link-list">
+<a href="#">サイトポリシー</a>　|　<a href="#">プライバシーポリシー</a>　|　<a href="#">推奨環境</a>
+</div>
+</div>
+<div class="gf-copyright">
+<a href="index.html">© MY FAMILY CLUB</a>
+<p>個人利用のためのサイトです</p>
+</div>
+</div>
+</footer>
+
+<script>
+function openMenu(){
+  document.getElementById('globalMenu').style.display='block';
+  document.getElementById('menuOverlay').style.display='block';
+  document.body.style.overflow='hidden';
+}
+function closeMenu(){
+  document.getElementById('globalMenu').style.display='none';
+  document.getElementById('menuOverlay').style.display='none';
+  document.body.style.overflow='';
+}
+</script>
+
+</body>
+</html>
