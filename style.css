@@ -212,8 +212,8 @@ footer#global-footer .gf-category-link .link-list {
 #globalMenu .gh-global-menu-nav .global-nav-links ul li.border{padding-bottom:20px;border-bottom:1.5px solid #fff}
 
 
-.gh-masthead {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
