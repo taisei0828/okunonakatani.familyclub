@@ -212,8 +212,9 @@ footer#global-footer .gf-category-link .link-list {
 #globalMenu .gh-global-menu-nav .global-nav-links ul li.border{padding-bottom:20px;border-bottom:1.5px solid #fff}
 
 
-.logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.gh-menu-left,
+.gh-menu-right {
+  width: 90px; /* 同じ幅にする */
+  display: flex;
+  justify-content: center;
 }
