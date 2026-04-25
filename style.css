@@ -212,9 +212,14 @@ footer#global-footer .gf-category-link .link-list {
 #globalMenu .gh-global-menu-nav .global-nav-links ul li.border{padding-bottom:20px;border-bottom:1.5px solid #fff}
 
 
-.gh-menu-left,
-.gh-menu-right {
-  width: 90px; /* 同じ幅にする */
-  display: flex;
-  justify-content: center;
+/* ▼ 以下、作成後に追加したもの */
+@media screen and (max-width:767px){
+  header#global-header .gh-masthead {
+    width: 100%;
+    text-align: center;
+  }
+
+  header#global-header .gh-masthead .logo {
+    margin: 0 auto !important;
+  }
 }
