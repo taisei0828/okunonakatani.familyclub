@@ -214,6 +214,8 @@ footer#global-footer .gf-category-link .link-list {
 
 /* ▼ 以下、作成後に追加したもの */
 @media screen and (max-width:767px){
-  header#global-header .gh-menu-left { left:20px; }
-  header#global-header .gh-menu-right { right:20px; }
+  header#global-header .gh-masthead .logo {
+    position: relative;
+    left: 6px; /* ←ここで微調整（5〜10pxくらい） */
+  }
 }
