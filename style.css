@@ -214,12 +214,6 @@ footer#global-footer .gf-category-link .link-list {
 
 /* ▼ 以下、作成後に追加したもの */
 @media screen and (max-width:767px){
-  header#global-header .gh-masthead {
-    width: 100%;
-    text-align: center;
-  }
-
-  header#global-header .gh-masthead .logo {
-    margin: 0 auto !important;
-  }
+  header#global-header .gh-menu-left { left:20px; }
+  header#global-header .gh-menu-right { right:20px; }
 }
