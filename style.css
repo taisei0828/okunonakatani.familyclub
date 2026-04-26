@@ -213,3 +213,22 @@ footer#global-footer .gf-category-link .link-list {
 /* ヘッダー固定用スペーサー */
 .header-spacer{height:100px}
 @media screen and (max-width:767px){.header-spacer{height:60px}}
+
+/* ========== FAQ ページ ========== */
+.faq-nav-item{display:flex;flex-direction:column;align-items:center;cursor:pointer;text-decoration:none}
+.faq-label{display:block;font-size:9px;color:#231F20;letter-spacing:0.02em;margin-top:-6px;white-space:nowrap;line-height:1}
+@media screen and (max-width:767px){.faq-label{font-size:8px}}
+.faq-item{border-bottom:1px solid #e8e8e8;margin-bottom:0}
+.faq-item:last-child{border-bottom:none}
+.faq-question{width:100%;display:flex;align-items:center;gap:12px;background:none;border:none;padding:18px 4px;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent}
+.faq-question:hover{opacity:.75}
+.faq-num{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:linear-gradient(60deg,#0081cc 0,#3baec6 50%,#76c6d7 100%);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.02em}
+@media screen and (max-width:767px){.faq-num{width:34px;height:34px;font-size:11px}}
+.faq-text{flex:1;font-size:15px;font-weight:600;color:#231F20;line-height:1.5;max-width:100%;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+@media screen and (max-width:767px){.faq-text{font-size:14px}}
+.faq-arrow{flex-shrink:0;font-size:13px;color:#3baec6;transition:transform .3s ease;display:inline-block}
+.faq-answer{display:none;padding:0 4px 20px}
+.faq-answer.faq-open{display:block}
+.faq-img{width:100%;border-radius:10px;display:block;margin-bottom:14px;object-fit:cover;max-height:260px}
+.faq-answer-text{font-size:14px;line-height:1.8;color:#444;margin:0}
+@media screen and (max-width:767px){.faq-answer-text{font-size:13px}}
