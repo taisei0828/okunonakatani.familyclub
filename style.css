@@ -236,3 +236,7 @@ footer#global-footer .gf-category-link .link-list {
 /* ========== メインページ画像位置調整 ========== */
 .fm-member-top-background-image{background-position:top center;min-height:300px;}
 @media screen and (max-width:767px){.fm-member-top-background-image{min-height:500px;}}
+
+.center {
+  text-align: center;
+}
