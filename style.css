@@ -232,3 +232,7 @@ footer#global-footer .gf-category-link .link-list {
 .faq-img{width:100%;border-radius:10px;display:block;margin-bottom:14px;object-fit:cover;max-height:260px}
 .faq-answer-text{font-size:14px;line-height:1.8;color:#444;margin:0}
 @media screen and (max-width:767px){.faq-answer-text{font-size:13px}}
+
+/* ========== メインページ画像位置調整 ========== */
+.fm-member-top-background-image{background-position:top center;min-height:300px;}
+@media screen and (max-width:767px){.fm-member-top-background-image{min-height:220px;}}
