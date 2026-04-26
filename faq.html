@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>よくある質問 - FAMILY CLUB</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="pageTop">
+
+<div class="menu-overlay" id="menuOverlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:99998;cursor:pointer;" onclick="closeMenu()"></div>
+
+<header id="global-header" style="top:0">
+<div class="gh-masthead">
+<div class="logo">
+<a href="index.html"><img src="fc-logo.png" alt="FAMILY CLUB" style="height:50px;width:auto;"></a>
+</div>
+</div>
+<div class="gh-menu">
+<nav class="gh-menu-left">
+<div class="gh-button">
+<ul class="gh-nav-wrapper">
+<li><button type="button" onclick="openMenu()"><i class="ic-menu"></i></button></li>
+<li>
+<a href="faq.html" class="faq-nav-item">
+<i class="ic-faq"></i>
+<span class="faq-label">よくある質問</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<div class="gh-menu-right">
+<a href="mypage.html"><i class="ic-mypage"></i></a>
+</div>
+</div>
+</header>
+
+<div id="globalMenu" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:rgb(59,174,198);z-index:99999;overflow-y:auto;">
+<nav class="gh-global-menu-nav" style="padding:10px 20px 80px;">
+<div class="global-nav-top">
+<button type="button" class="bt-menu-close" onclick="closeMenu()">✕</button>
+<a href="index.html">FAMILY CLUB</a>
+</div>
+<div class="global-nav-links">
+<ul>
+<li class="border"><a href="updates.html" onclick="closeMenu()">更新情報</a></li>
+<li><a href="movies.html" onclick="closeMenu()">ムービー</a></li>
+<li class="border"><a href="gallery.html" onclick="closeMenu()">ギャラリー</a></li>
+<li><a href="performance.html" onclick="closeMenu()">公演</a></li>
+<li class="border"><a href="https://instagram.com" target="_blank" onclick="closeMenu()">公式Instagram</a></li>
+<li><a href="https://example.com/store" target="_blank" onclick="closeMenu()">公式オンラインストア</a></li>
+<li class="border"><a href="mypage.html" onclick="closeMenu()">マイページ</a></li>
+<li><a href="logout.html" onclick="closeMenu()">ログアウト</a></li>
+</ul>
+</div>
+</nav>
+</div>
+
+<div class="header-spacer"></div>
+
+<main id="main">
+
+<div class="title-area title-only bg-blue">
+<div class="page-title">
+<h1>よくある質問</h1>
+</div>
+</div>
+
+<section class="container">
+
+<div class="module module-round-area shadow-box first-block">
+<div class="block">
+<div class="block-title">
+<h4 class="icon-title"><i class="ic-faq"></i>奥野夫妻への質問コーナー</h4>
+</div>
+
+<p style="margin:0 0 24px;color:#555;font-size:14px;line-height:1.7;">
+気になる質問をタップすると、写真と回答が表示されます。
+</p>
+
+<!-- Q1 -->
+<div class="faq-item" id="faq1">
+<button class="faq-question" onclick="toggleFaq(1)" aria-expanded="false">
+<span class="faq-num">Q1</span>
+<span class="faq-text">お二人の出会いを教えてください！</span>
+<span class="faq-arrow">▼</span>
+</button>
+<div class="faq-answer" id="faq-answer-1">
+<img src="https://placehold.co/600x300/3BAEC6/ffffff?text=Q1+Photo" alt="Q1の写真" class="faq-img">
+<p class="faq-answer-text">実は共通の友人の紹介で出会いました。最初はグループでの食事会だったのですが、気づけば二人でよく話すようになって。趣味が似ていたこともあり、自然と距離が縮まっていきました。出会いから付き合うまでは意外と早かったですよ（笑）。今思えばあの食事会が運命の分かれ道でしたね。</p>
+</div>
+</div>
+
+<!-- Q2 -->
+<div class="faq-item" id="faq2">
+<button class="faq-question" onclick="toggleFaq(2)" aria-expanded="false">
+<span class="faq-num">Q2</span>
+<span class="faq-text">プロポーズはどんな場所でしたか？</span>
+<span class="faq-arrow">▼</span>
+</button>
+<div class="faq-answer" id="faq-answer-2">
+<img src="https://placehold.co/600x300/3BAEC6/ffffff?text=Q2+Photo" alt="Q2の写真" class="faq-img">
+<p class="faq-answer-text">二人でよく訪れていたお気に入りのレストランでプロポーズしました。夜景が綺麗で、雰囲気も最高だったのですが、緊張しすぎてセリフを半分忘れてしまいました（笑）。それでも「Yes!」と言ってもらえたときは本当に嬉しかったです。あの日のことは一生忘れられない思い出です。</p>
+</div>
+</div>
+
+<!-- Q3 -->
+<div class="faq-item" id="faq3">
+<button class="faq-question" onclick="toggleFaq(3)" aria-expanded="false">
+<span class="faq-num">Q3</span>
+<span class="faq-text">お互いの好きなところは何ですか？</span>
+<span class="faq-arrow">▼</span>
+</button>
+<div class="faq-answer" id="faq-answer-3">
+<img src="https://placehold.co/600x300/3BAEC6/ffffff?text=Q3+Photo" alt="Q3の写真" class="faq-img">
+<p class="faq-answer-text">（夫）どんなときでも笑顔でいてくれるところが大好きです。落ち込んでいるときにそっと側にいてくれる優しさが嬉しいです。（妻）いつも家族を一番に考えてくれるところが大好きです。小さなことでも気にかけてくれて、さりげない気遣いがとても嬉しいです。これからもよろしくね。</p>
+</div>
+</div>
+
+<!-- Q4 -->
+<div class="faq-item" id="faq4">
+<button class="faq-question" onclick="toggleFaq(4)" aria-expanded="false">
+<span class="faq-num">Q4</span>
+<span class="faq-text">二人のケンカの原因は何が多いですか？</span>
+<span class="faq-arrow">▼</span>
+</button>
+<div class="faq-answer" id="faq-answer-4">
+<img src="https://placehold.co/600x300/3BAEC6/ffffff?text=Q4+Photo" alt="Q4の写真" class="faq-img">
+<p class="faq-answer-text">些細なことが多いですね。例えば、休日の過ごし方の違いや、家事の分担について意見が食い違うこともあります。でも、長引くことはほとんどなくて、お互いに話し合って解決するようにしています。ケンカの後は必ず仲直りの食事に行くのが我が家のルールです！</p>
+</div>
+</div>
+
+<!-- Q5 -->
+<div class="faq-item" id="faq5">
+<button class="faq-question" onclick="toggleFaq(5)" aria-expanded="false">
+<span class="faq-num">Q5</span>
+<span class="faq-text">お二人の趣味は何ですか？</span>
+<span class="faq-arrow">▼</span>
+</button>
+<div class="faq-answer" id="faq-answer-5">
+<img src="https://placehold.co/600x300/3BAEC6/ffffff?text=Q5+Photo" alt="Q5の写真" class="faq-img">
+<p class="faq-answer-text">共通の趣味は旅行と料理です！週末はよく一緒に料理をして、新しいレシピに挑戦しています。旅行は国内外問わず好きで、これまでに様々な場所へ行きました。個人では、夫はスポーツ観戦、妻は読書が好きです。お互いの時間も大切にしながら、一緒に楽しめることも増やしていきたいです。</p>
+</div>
+</div>
+
+<!-- Q6 -->
+<div class="faq-item" id="faq6">
+<button class="faq-question" onclick="toggleFaq(6)" aria-expanded="false">
+<span class="faq-num">Q6</span>
+<span class="faq-text">ファンへのメッセージをお願いします！</span>
+<span class="faq-arrow">▼</span>
+</button>
+<div class="faq-answer" id="faq-answer-6">
+<img src="https://placehold.co/600x300/3BAEC6/ffffff?text=Q6+Photo" alt="Q6の写真" class="faq-img">
+<p class="faq-answer-text">いつも応援してくださって本当にありがとうございます！皆さんの温かい声援がいつも私たちの力になっています。これからもたくさんの楽しいコンテンツをお届けできるように頑張りますので、引き続き応援よろしくお願いします。皆さんと一緒に歩んでいけることを心から嬉しく思っています。</p>
+</div>
+</div>
+
+<!-- Q7 -->
+<div class="faq-item" id="faq7">
+<button class="faq-question" onclick="toggleFaq(7)" aria-expanded="false">
+<span class="faq-num">Q7</span>
+<span class="faq-text">これからやってみたいことはありますか？</span>
+<span class="faq-arrow">▼</span>
+</button>
+<div class="faq-answer" id="faq-answer-7">
+<img src="https://placehold.co/600x300/3BAEC6/ffffff?text=Q7+Photo" alt="Q7の写真" class="faq-img">
+<p class="faq-answer-text">二人でいつか海外に長期滞在してみたいです！旅行ではなく、現地の生活を体験するような感じで。あとは、いつか自分たちのお店を持つのが夢です。料理が好きなので、小さなカフェや食堂みたいなものを開いてみたいね、とよく話しています。夢を語るのは楽しいですね！</p>
+</div>
+</div>
+
+<!-- Q8 -->
+<div class="faq-item" id="faq8">
+<button class="faq-question" onclick="toggleFaq(8)" aria-expanded="false">
+<span class="faq-num">Q8</span>
+<span class="faq-text">お互いに直してほしいところはありますか？</span>
+<span class="faq-arrow">▼</span>
+</button>
+<div class="faq-answer" id="faq-answer-8">
+<img src="https://placehold.co/600x300/3BAEC6/ffffff?text=Q8+Photo" alt="Q8の写真" class="faq-img">
+<p class="faq-answer-text">（夫）もう少し早起きしてほしいです（笑）。休日はいつもギリギリまで寝ていて、出かけるのが遅くなってしまいます。（妻）買い物のとき、すぐに衝動買いするのを控えてほしいです！でもそういうところも含めてお互いを認め合うことが大切だと思っているので、笑いながら言い合える関係でいたいです。</p>
+</div>
+</div>
+
+<!-- Q9 -->
+<div class="faq-item" id="faq9">
+<button class="faq-question" onclick="toggleFaq(9)" aria-expanded="false">
+<span class="faq-num">Q9</span>
+<span class="faq-text">結婚して一番良かったことは何ですか？</span>
+<span class="faq-arrow">▼</span>
+</button>
+<div class="faq-answer" id="faq-answer-9">
+<img src="https://placehold.co/600x300/3BAEC6/ffffff?text=Q9+Photo" alt="Q9の写真" class="faq-img">
+<p class="faq-answer-text">毎日「おはよう」と「おやすみ」を同じ人に言える幸せを実感しています。一人の頃には気づかなかった当たり前の日常がとても大切なものだとわかりました。嬉しいことも悲しいことも、隣で分かち合える人がいることが一番の喜びです。結婚して本当に良かったと、毎日思っています。</p>
+</div>
+</div>
+
+<!-- Q10 -->
+<div class="faq-item" id="faq10">
+<button class="faq-question" onclick="toggleFaq(10)" aria-expanded="false">
+<span class="faq-num">Q10</span>
+<span class="faq-text">ファンクラブへの想いを聞かせてください！</span>
+<span class="faq-arrow">▼</span>
+</button>
+<div class="faq-answer" id="faq-answer-10">
+<img src="https://placehold.co/600x300/3BAEC6/ffffff?text=Q10+Photo" alt="Q10の写真" class="faq-img">
+<p class="faq-answer-text">FAMILY CLUBは私たちにとって本当に特別な場所です。ここを通じてみなさんと繋がれることが、活動の大きな原動力になっています。これからも皆さんにとって居心地の良い場所であり続けられるように、二人で力を合わせて素敵なコンテンツをお届けしていきます。これからもどうぞよろしくお願いします！</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</section>
+</main>
+
+<footer id="global-footer">
+<div class="container">
+<div class="gf-category-link">
+<div class="shortcut-top">
+<button type="button" class="bt-move-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="ic-move-top"></i></button>
+</div>
+<div class="link-list">
+<a href="#">サイトポリシー</a>　|　<a href="#">プライバシーポリシー</a>　|　<a href="#">推奨環境</a>
+</div>
+</div>
+<div class="gf-copyright">
+<a href="index.html">© MY FAMILY CLUB</a>
+<p>個人利用のためのサイトです</p>
+</div>
+</div>
+</footer>
+
+<script>
+function openMenu(){
+  document.getElementById('globalMenu').style.display='block';
+  document.getElementById('menuOverlay').style.display='block';
+  document.body.style.overflow='hidden';
+}
+function closeMenu(){
+  document.getElementById('globalMenu').style.display='none';
+  document.getElementById('menuOverlay').style.display='none';
+  document.body.style.overflow='';
+}
+function toggleFaq(n){
+  var ans = document.getElementById('faq-answer-'+n);
+  var btn = ans.previousElementSibling;
+  var arrow = btn.querySelector('.faq-arrow');
+  var isOpen = ans.classList.contains('faq-open');
+  if(isOpen){
+    ans.classList.remove('faq-open');
+    btn.setAttribute('aria-expanded','false');
+    arrow.style.transform='rotate(0deg)';
+  } else {
+    ans.classList.add('faq-open');
+    btn.setAttribute('aria-expanded','true');
+    arrow.style.transform='rotate(180deg)';
+  }
+}
+</script>
+
+</body>
+</html>
