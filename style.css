@@ -229,7 +229,7 @@ footer#global-footer .gf-category-link .link-list {
 .faq-arrow{flex-shrink:0;font-size:13px;color:#3baec6;transition:transform .3s ease;display:inline-block}
 .faq-answer{display:none;padding:0 4px 20px}
 .faq-answer.faq-open{display:block}
-.faq-img{width:100%;border-radius:10px;display:block;margin-bottom:14px;object-fit:cover;max-height:260px}
+.faq-img{width:100%;max-width:100%;border-radius:10px;display:block;margin-bottom:14px;object-fit:contain;max-height:none;}
 .faq-answer-text{font-size:14px;line-height:1.8;color:#444;margin:0}
 @media screen and (max-width:767px){.faq-answer-text{font-size:13px}}
 
