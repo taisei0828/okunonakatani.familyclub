@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>マイページ - TFC</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Playlist Page Styles ===== */
+.playlist-hero{
+  background-image:linear-gradient(135deg,#0081cc 0%,#3baec6 50%,#b5e4ef 100%);
+  padding:48px 20px 40px;
+  text-align:center;
+  color:#fff;
+}
+.playlist-hero-label{
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  opacity:.85;
+  margin-bottom:10px;
+}
+.playlist-hero h1{
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:.06em;
+  margin:0 0 6px;
+  line-height:1.3;
+}
+.playlist-hero-date{
+  font-size:13px;
+  opacity:.8;
+  margin-bottom:28px;
+}
+.playlist-share-btn{
+  display:inline-block;
+  background:#fff;
+  color:#0081cc;
+  font-weight:700;
+  font-size:15px;
+  padding:14px 36px;
+  border-radius:30px;
+  text-decoration:none;
+  box-shadow:0 4px 16px rgba(0,0,0,.15);
+  transition:opacity .2s;
+  letter-spacing:.04em;
+}
+.playlist-share-btn:hover{opacity:.8}
+.playlist-share-btn::before{content:"♪ "}
+.playlist-section{margin-bottom:32px;}
+.playlist-section-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:16px;
+  font-weight:700;
+  color:#231F20;
+  margin:0 0 20px;
+  padding-bottom:12px;
+  border-bottom:2px solid #3baec6;
+}
+.playlist-section-title .section-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:linear-gradient(60deg,#0081cc 0,#3baec6 100%);
+  color:#fff;
+  font-size:15px;
+  flex-shrink:0;
+}
+.event-list{list-style:none;margin:0;padding:0;}
+.event-item{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid #f0f0f0;
+}
+.event-item:last-child{border-bottom:none}
+.event-scene{
+  flex-shrink:0;
+  min-width:110px;
+  font-size:12px;
+  font-weight:700;
+  color:#3baec6;
+  line-height:1.5;
+  padding-top:2px;
+}
+.event-song{flex:1;font-size:14px;color:#231F20;line-height:1.6;}
+.event-song .artist{display:block;font-size:12px;color:#888;margin-top:2px;}
+.bgm-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media screen and (max-width:767px){.bgm-grid{grid-template-columns:1fr}}
+.bgm-item{
+  background:#f8fbfd;
+  border-radius:10px;
+  padding:12px 14px;
+  border-left:3px solid #3baec6;
+}
+.bgm-item .bgm-title{font-size:13px;font-weight:600;color:#231F20;line-height:1.4;}
+.bgm-item .bgm-artist{font-size:11px;color:#888;margin-top:3px;}
+.playlist-divider{
+  height:1px;
+  background:linear-gradient(to right,transparent,#d0eaf4,transparent);
+  margin:32px 0;
+}
+</style>
+</head>
+<body id="pageTop">
+
+<div class="menu-overlay" id="menuOverlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:99998;cursor:pointer;" onclick="closeMenu()"></div>
+
+<header id="global-header" style="top:0">
+<div class="gh-masthead">
+<div class="logo">
+<a href="index.html"><img src="fc-logo.png" alt="FAMILY CLUB" style="height:50px;width:auto;"></a>
+</div>
+</div>
+<div class="gh-menu">
+<nav class="gh-menu-left">
+<div class="gh-button">
+<ul class="gh-nav-wrapper">
+<li><button type="button" onclick="openMenu()"><i class="ic-menu"></i></button></li>
+<li>
+  <a href="faq.html" class="faq-nav-item">
+    <i class="ic-faq"></i>
+    <span class="faq-label">よくある質問</span>
+  </a>
+</li>
+</ul>
+</div>
+</nav>
+<div class="gh-menu-right">
+<a href="mypage.html"><i class="ic-mypage"></i></a>
+</div>
+</div>
+</header>
+
+<div id="globalMenu" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:rgb(59,174,198);z-index:99999;overflow-y:auto;">
+<nav class="gh-global-menu-nav" style="padding:10px 20px 80px;">
+<div class="global-nav-top">
+<button type="button" class="bt-menu-close" onclick="closeMenu()">✕</button>
+<a href="index.html">Taisei Fumika Club</a>
+</div>
+<div class="global-nav-links">
+<ul>
+<li><a href="updates.html" onclick="closeMenu()">更新情報</a></li>
+<li class="border"><a href="faq.html" onclick="closeMenu()">奥野夫妻への質問コーナー</a></li>
+<li><a href="movies.html" onclick="closeMenu()">ムービー</a></li>
+<li class="border"><a href="gallery.html" onclick="closeMenu()">ギャラリー</a></li>
+<li><a href="performance.html" onclick="closeMenu()">公演</a></li>
+<li class="border"><a href="https://instagram.com" target="_blank" onclick="closeMenu()">公式Instagram</a></li>
+<li><a href="https://tfc0711.official.ec/" target="_blank" onclick="closeMenu()">公式オンラインストア</a></li>
+<li class="border"><a href="mypage.html" onclick="closeMenu()">マイページ</a></li>
+<li><a href="logout.html" onclick="closeMenu()">ログアウト</a></li>
+</ul>
+</div>
+</nav>
+</div>
+
+<div class="header-spacer"></div>
+
+<main id="main">
+
+<!-- ヒーロー -->
+<div class="playlist-hero">
+<p class="playlist-hero-label">Wedding Music</p>
+<h1>Wedding Playlist</h1>
+<p class="playlist-hero-date">Taisei &amp; Fumika</p>
+<a href="https://www.tunemymusic.com/share/73qa9yamgX" target="_blank" class="playlist-share-btn">プレイリストを見る</a>
+</div>
+
+<section class="container">
+
+<div class="module module-round-area shadow-box first-block">
+<div class="block">
+
+<!-- イベント用リスト -->
+<div class="playlist-section">
+<h2 class="playlist-section-title">
+<span class="section-icon">♪</span>
+イベント用プレイリスト
+</h2>
+<ul class="event-list">
+  <li class="event-item">
+    <span class="event-scene">迎賓中</span>
+    <span class="event-song">
+      Tele / ロックスター
+      <span class="artist">+ PEOPLE 1 / ハートブレイク・ダンスミュージック<br>+ Perfume / Time Warp</span>
+    </span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">バルーン</span>
+    <span class="event-song">Oh! Yeah<span class="artist">嵐</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">入場</span>
+    <span class="event-song">feelin'<span class="artist">muque</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">乾杯</span>
+    <span class="event-song">Summer Breeze<span class="artist">go!go!vanillas</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">友人スピーチ</span>
+    <span class="event-song">あなたがここにいたら / Winding Road<span class="artist">ポルノグラフィティ</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">新婦友達紹介</span>
+    <span class="event-song">LIKEY<span class="artist">TWICE</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">ケーキ入刀</span>
+    <span class="event-song">Shake&amp;Shake<span class="artist">sumika</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">お色直し退場<br><span style="font-size:11px;color:#aaa;">（ふみちゃん）</span></span>
+    <span class="event-song">新宝島<span class="artist">サカナクション</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">お色直し退場<br><span style="font-size:11px;color:#aaa;">（たいせい）</span></span>
+    <span class="event-song">take me higher<span class="artist">V6</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">生い立ちムービー</span>
+    <span class="event-song">step<span class="artist">クレイジーウォウウォ</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">再入場</span>
+    <span class="event-song">I'll be there<span class="artist">嵐</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">新婦お手紙</span>
+    <span class="event-song">フクロウ<span class="artist">サカナクション</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">新郎お手紙</span>
+    <span class="event-song">カゲボウシ<span class="artist">ポルノグラフィティ</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">花束・記念品贈呈</span>
+    <span class="event-song">パレード<span class="artist">ヨルシカ</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">退場</span>
+    <span class="event-song">Five<span class="artist">嵐</span></span>
+  </li>
+  <li class="event-item">
+    <span class="event-scene">エンドロール</span>
+    <span class="event-song">Bouquet<span class="artist">muque</span></span>
+  </li>
+</ul>
+</div>
+
+<div class="playlist-divider"></div>
+
+<!-- 歓談BGMリスト -->
+<div class="playlist-section">
+<h2 class="playlist-section-title">
+<span class="section-icon">♬</span>
+歓談中 BGM
+</h2>
+<div class="bgm-grid">
+  <div class="bgm-item"><p class="bgm-title">POP!</p><p class="bgm-artist">NAYEON</p></div>
+  <div class="bgm-item"><p class="bgm-title">彗星</p><p class="bgm-artist">リアクションザブッタ</p></div>
+  <div class="bgm-item"><p class="bgm-title">時計</p><p class="bgm-artist">フラワーフラワー</p></div>
+  <div class="bgm-item"><p class="bgm-title">陽炎</p><p class="bgm-artist">サカナクション</p></div>
+  <div class="bgm-item"><p class="bgm-title">Honey Honey</p><p class="bgm-artist">Sexy Zone</p></div>
+  <div class="bgm-item"><p class="bgm-title">味方</p><p class="bgm-artist">My hair is Bad</p></div>
+  <div class="bgm-item"><p class="bgm-title">Dirty little secrets</p><p class="bgm-artist">CLAN QUEEN</p></div>
+  <div class="bgm-item"><p class="bgm-title">恋のマジカルミステリー</p><p class="bgm-artist">マカロニえんぴつ</p></div>
+  <div class="bgm-item"><p class="bgm-title">雲と幽霊</p><p class="bgm-artist">ヨルシカ</p></div>
+  <div class="bgm-item"><p class="bgm-title">It's Me</p><p class="bgm-artist">ILLIT</p></div>
+  <div class="bgm-item"><p class="bgm-title">BLACK HOLE</p><p class="bgm-artist">IVE</p></div>
+  <div class="bgm-item"><p class="bgm-title">ミュージック・アワー</p><p class="bgm-artist">ポルノグラフィティ</p></div>
+  <div class="bgm-item"><p class="bgm-title">ミテミテ</p><p class="bgm-artist">nomelon nolemon</p></div>
+  <div class="bgm-item"><p class="bgm-title">ファタール</p><p class="bgm-artist">キタニタツヤ</p></div>
+  <div class="bgm-item"><p class="bgm-title">Smile</p><p class="bgm-artist">アヴリル・ラヴィーン</p></div>
+  <div class="bgm-item"><p class="bgm-title">スマイルあげない</p><p class="bgm-artist">あの</p></div>
+</div>
+</div>
+
+<div class="playlist-divider"></div>
+
+<!-- ボタン -->
+<div style="text-align:center;padding:8px 0 4px;">
+<a href="https://www.tunemymusic.com/share/73qa9yamgX" target="_blank" class="round-button blue bold medium-size" style="max-width:320px;display:inline-block;">♪ プレイリストを見る</a>
+</div>
+
+</div>
+</div>
+
+</section>
+</main>
+
+<footer id="global-footer">
+<div class="container">
+<div class="gf-category-link">
+<div class="shortcut-top">
+<button type="button" class="bt-move-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="ic-move-top"></i></button>
+</div>
+<div class="link-list">
+<span style="font-size:10px;">
+<a href="#">サイトポリシー</a>　|　<a href="#">プライバシーポリシー</a>　|　<a href="#">推奨環境</a>
+</span>
+</div>
+</div>
+<div class="gf-copyright">
+<p>個人利用のためのサイトです</p>
+</div>
+</div>
+</footer>
+
+<script>
+function openMenu(){
+  document.getElementById('globalMenu').style.display='block';
+  document.getElementById('menuOverlay').style.display='block';
+  document.body.style.overflow='hidden';
+}
+function closeMenu(){
+  document.getElementById('globalMenu').style.display='none';
+  document.getElementById('menuOverlay').style.display='none';
+  document.body.style.overflow='';
+}
+</script>
+
+</body>
+</html>
